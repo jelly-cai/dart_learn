@@ -1,4 +1,5 @@
 import 'package:dart_start/enumdemo/enum_widget.dart';
+import 'package:dart_start/sync/sync_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: new Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: EnumWidget()
+        child: SyncWidget()
       )// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
