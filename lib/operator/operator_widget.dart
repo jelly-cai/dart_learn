@@ -4,7 +4,7 @@ class OperatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    test2();
+    test3();
     return Text("123");
   }
 
@@ -21,20 +21,26 @@ class OperatorWidget extends StatelessWidget {
 
   test2() {
     Animal pig = Pig(color: Colors.white);
-    if(pig is Animal){
+    if (pig is Animal) {
       print("pig is animal");
     }
-    if(pig is Person){
+    if (pig is Person) {
       print("pig is person");
     }
-    if(pig is Pig){
+    if (pig is Pig) {
       print("pig is Pig");
       print(pig.color);
     }
-    if(pig is! Person){
+    if (pig is! Person) {
       print("pig is not person");
     }
     print((pig as Pig).color);
+  }
+
+  test3() {
+    Cup cup1 = Cup(firstName: "1", lastName: "1");
+    Cup cup2 = Cup(firstName: "1", lastName: "1");
+    print(cup1 == cup2);
   }
 }
 
@@ -54,4 +60,24 @@ class Animal {
   String name;
 
   Animal({this.name});
+}
+
+class Cup {
+  String firstName, lastName;
+
+  Cup({this.firstName, this.lastName});
+
+
+  @override
+  int get hashCode{
+    return firstName.hashCode + lastName.hashCode;
+  }
+
+  bool operator ==(dynamic other) {
+    if (other is! Cup) {
+      return false;
+    }
+    Cup cup = other;
+    return firstName == cup.firstName && lastName == cup.lastName;
+  }
 }
